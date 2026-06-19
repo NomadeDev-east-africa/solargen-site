@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+/* ============================================================
+   SOLARGEN GROUP — Design System
+   Énergie solaire · Djibouti · Bleu ciel · Vert · Soleil
+   ============================================================ */
+
+@theme {
+  /* Surfaces — light & airy (légèrement chaud) */
+  --color-snow: #ffffff;
+  --color-cloud: #f6f8f3;
+  --color-mist: #eef3e7;
+  --color-haze: #e4ecda;
+
+  /* Ink / text — gris anthracite du logo "ARGEN" */
+  --color-night: #2c2f31;
+  --color-navy: #3a3e40;
+  --color-slate: #565b5e;
+  --color-muted: #898e90;
+
+  /* Vert SolarGen (brand primary) — repris du "S" du logo */
+  --color-sky: #3aa935;
+  --color-sky-deep: #1f7d23;
+  --color-sky-light: #74cf5a;
+
+  /* Vert profond (secondary) */
+  --color-leaf: #2e9e2f;
+  --color-leaf-deep: #1c7d1f;
+  --color-leaf-light: #6cca52;
+
+  /* Soleil or / orange (accent) — repris du soleil du logo */
+  --color-sun: #f9b115;
+  --color-sun-light: #ffd24a;
+  --color-sun-deep: #f08a00;
+
+  --font-display: var(--font-sora), "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+
+  --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --sun-gradient: linear-gradient(120deg, #f08a00 0%, #f9b115 35%, #ffd24a 50%, #f9b115 65%, #f08a00 100%);
+  --solar-gradient: linear-gradient(120deg, #1c7d1f 0%, #3aa935 50%, #74cf5a 100%);
+}
+
+* {
+  border-color: color-mix(in srgb, var(--color-sky) 14%, transparent);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-snow);
+  color: var(--color-night);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--color-sky);
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-mist);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-sky), var(--color-sky-deep));
+  border-radius: 10px;
+  border: 2px solid var(--color-mist);
+}
+
+/* ----------- Reusable utilities ----------- */
+
+.text-solar-gradient {
+  background: var(--solar-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.text-sun-gradient {
+  background: var(--sun-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-sky-deep);
+}
+
+.glass {
+  background: color-mix(in srgb, var(--color-snow) 78%, transparent);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+.glass-dark {
+  background: color-mix(in srgb, var(--color-night) 64%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+.card-glow {
+  box-shadow: 0 24px 60px -34px rgba(11, 31, 51, 0.35);
+}
+
+.card-soft {
+  box-shadow: 0 1px 0 0 rgba(11, 31, 51, 0.04), 0 18px 40px -30px rgba(11, 31, 51, 0.25);
+}
+
+/* Reveal default state (JS adds .is-visible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 1s var(--ease-lux), transform 1s var(--ease-lux);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Buttons */
+.btn-solar {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, var(--color-sky-deep), var(--color-sky));
+  color: #fff;
+  box-shadow: 0 12px 30px -12px color-mix(in srgb, var(--color-sky) 70%, transparent);
+  transition: transform 0.4s var(--ease-lux), box-shadow 0.4s var(--ease-lux), filter 0.4s var(--ease-lux);
+}
+.btn-solar:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 18px 38px -14px color-mix(in srgb, var(--color-sky) 80%, transparent);
+}
+
+.btn-sun {
+  position: relative;
+  overflow: hidden;
+  background: var(--sun-gradient);
+  background-size: 200% auto;
+  color: var(--color-night);
+  font-weight: 700;
+  transition: background-position 0.6s var(--ease-lux), transform 0.4s var(--ease-lux);
+}
+.btn-sun:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  border: 1.5px solid color-mix(in srgb, var(--color-sky) 35%, transparent);
+  color: var(--color-navy);
+  transition: all 0.4s var(--ease-lux);
+}
+.btn-ghost:hover {
+  border-color: var(--color-sky);
+  background: color-mix(in srgb, var(--color-sky) 8%, transparent);
+  transform: translateY(-2px);
+}
+
+.btn-ghost-light {
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+  transition: all 0.4s var(--ease-lux);
+}
+.btn-ghost-light:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scroll-hint {
+  0% { transform: translateY(0); opacity: 0; }
+  40% { opacity: 1; }
+  80% { transform: translateY(14px); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: 0.001ms !important; }
+  html { scroll-behavior: auto; }
+}
