@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLang } from "@/lib/i18n";
@@ -37,7 +38,10 @@ function LangToggle({ className }: { className?: string }) {
 
 export default function Navbar() {
   const t = useT();
+  const pathname = usePathname();
+  const onHome = pathname === "/";
   const links = t.nav.links;
+  const resolveHref = (href: string) => (onHome ? href : `/${href}`);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -59,7 +63,7 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5 group">
+        <a href={resolveHref("#top")} className="flex items-center gap-2.5 group">
           <Image
             src="/images/logo.png"
             alt="SOLARGEN GROUP"
@@ -77,7 +81,7 @@ export default function Navbar() {
           {links.map((l) => (
             <li key={l.href}>
               <a
-                href={l.href}
+                href={resolveHref(l.href)}
                 className="group relative text-sm font-semibold tracking-wide text-slate transition hover:text-night"
               >
                 {l.label}
@@ -90,7 +94,13 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <LangToggle className="hidden sm:inline-flex" />
           <a
-            href="#contact"
+            href="/simulateur"
+            className="btn-sun hidden rounded-full px-5 py-2.5 text-sm font-semibold md:inline-flex"
+          >
+            {t.simulator.navLabel}
+          </a>
+          <a
+            href={resolveHref("#contact")}
             className="btn-solar hidden rounded-full px-6 py-2.5 text-sm font-semibold sm:inline-flex"
           >
             {t.nav.cta}
@@ -117,10 +127,23 @@ export default function Navbar() {
             className="glass overflow-hidden border-t border-sky/10 lg:hidden"
           >
             <ul className="flex flex-col gap-1 px-6 py-5">
+              <li>
+                <a
+                  href="/simulateur"
+                  onClick={() => setOpen(false)}
+                  className="btn-sun mb-2 flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" />
+                  </svg>
+                  {t.simulator.navLabel}
+                </a>
+              </li>
               {links.map((l) => (
                 <li key={l.href}>
                   <a
-                    href={l.href}
+                    href={resolveHref(l.href)}
                     onClick={() => setOpen(false)}
                     className="block py-3 font-semibold tracking-wide text-slate"
                   >
@@ -130,7 +153,7 @@ export default function Navbar() {
               ))}
               <li className="mt-2 flex items-center justify-between gap-3">
                 <a
-                  href="#contact"
+                  href={resolveHref("#contact")}
                   onClick={() => setOpen(false)}
                   className="btn-solar inline-flex flex-1 justify-center rounded-full px-6 py-3 text-sm font-semibold"
                 >

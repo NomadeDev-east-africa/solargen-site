@@ -14,15 +14,13 @@ export default function Footer() {
         <div className="grid gap-12 pb-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* Marque */}
           <div>
-            <div className="inline-flex rounded-xl bg-white px-3 py-2.5">
-              <Image
-                src="/images/logo.png"
-                alt="SOLARGEN GROUP"
-                width={400}
-                height={150}
-                className="h-9 w-auto"
-              />
-            </div>
+            <Image
+              src="/images/logo.png"
+              alt="SOLARGEN GROUP"
+              width={400}
+              height={150}
+              className="h-10 w-auto"
+            />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/65">{t.footer.tagline}</p>
           </div>
 

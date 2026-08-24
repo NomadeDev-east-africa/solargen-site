@@ -71,6 +71,40 @@ export const products: Product[] = [
     ],
   },
   {
+    id: "onduleur-saj-15k-tri",
+    category: "onduleur",
+    brand: "SAJ",
+    name: "Onduleur triphasé 15 kVA",
+    image: "/images/equipement-5.jpeg",
+    tagline: {
+      fr: "Onduleur hybride triphasé 15 kVA : pour villas et sites professionnels à forte puissance.",
+      en: "15 kVA three-phase hybrid inverter: for villas and higher-power professional sites.",
+    },
+    specs: [
+      { label: { fr: "Puissance", en: "Power" }, value: "15 000 VA" },
+      { label: { fr: "Type", en: "Type" }, value: "Hybride" },
+      { label: { fr: "Phase", en: "Phase" }, value: "Triphasé" },
+      { label: { fr: "Usage", en: "Use" }, value: "Villa / Entreprise" },
+    ],
+  },
+  {
+    id: "onduleur-huawei-50k-tri",
+    category: "onduleur",
+    brand: "Huawei",
+    name: "Onduleur triphasé 50 kVA",
+    image: "/images/equipement-6.jpeg",
+    tagline: {
+      fr: "Onduleur hybride triphasé 50 kVA Huawei : pour les gros sites industriels et professionnels.",
+      en: "50 kVA Huawei three-phase hybrid inverter: for large industrial and business sites.",
+    },
+    specs: [
+      { label: { fr: "Puissance", en: "Power" }, value: "50 000 VA" },
+      { label: { fr: "Type", en: "Type" }, value: "Hybride" },
+      { label: { fr: "Phase", en: "Phase" }, value: "Triphasé" },
+      { label: { fr: "Usage", en: "Use" }, value: "Industriel / Gros site" },
+    ],
+  },
+  {
     id: "batterie-b3-5",
     category: "batterie",
     brand: "SAJ",

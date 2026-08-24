@@ -134,31 +134,6 @@ export default function Contact() {
           />
         </div>
       </Reveal>
-
-      <style jsx global>{`
-        .sg-input {
-          width: 100%;
-          background: var(--color-cloud);
-          border: 1.5px solid color-mix(in srgb, var(--color-sky) 16%, transparent);
-          border-radius: 12px;
-          padding: 0.85rem 1rem;
-          color: var(--color-night);
-          font-size: 0.95rem;
-          transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
-          outline: none;
-        }
-        .sg-input::placeholder {
-          color: color-mix(in srgb, var(--color-muted) 90%, transparent);
-        }
-        .sg-input:focus {
-          background: #fff;
-          border-color: var(--color-sky);
-          box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-sky) 12%, transparent);
-        }
-        select.sg-input option {
-          background: #fff;
-        }
-      `}</style>
     </section>
   );
 }

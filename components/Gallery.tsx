@@ -18,6 +18,7 @@ const IMAGES = [
   "/images/siege-halt.jpeg",
   "/images/equipement-9.jpeg",
   "/images/projet-agropastoral-5.jpeg",
+  "/images/bureau.jpeg",
 ];
 
 // Tailles variables pour un effet mosaïque (masonry).
@@ -32,6 +33,7 @@ const SPANS = [
   "",
   "",
   "row-span-2",
+  "",
 ];
 
 export default function Gallery() {

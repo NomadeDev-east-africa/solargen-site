@@ -220,6 +220,75 @@ html.lenis body {
 
 .animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
 
+/* Champs de formulaire partagés (Contact + Simulateur) */
+.sg-input {
+  width: 100%;
+  background: var(--color-cloud);
+  border: 1.5px solid color-mix(in srgb, var(--color-sky) 16%, transparent);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  color: var(--color-night);
+  font-size: 0.95rem;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+  outline: none;
+}
+.sg-input::placeholder {
+  color: color-mix(in srgb, var(--color-muted) 90%, transparent);
+}
+.sg-input:focus {
+  background: #fff;
+  border-color: var(--color-sky);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-sky) 12%, transparent);
+}
+select.sg-input option {
+  background: #fff;
+}
+
+/* Slider "heures / jour" du Simulateur */
+.sg-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-sky) var(--sg-range-fill, 50%), var(--color-mist) var(--sg-range-fill, 50%));
+  outline: none;
+}
+.sg-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--color-sky);
+  box-shadow: 0 4px 10px -3px rgba(11, 31, 51, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.sg-range::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
+.sg-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--color-sky);
+  box-shadow: 0 4px 10px -3px rgba(11, 31, 51, 0.4);
+  cursor: pointer;
+}
+.sg-range::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-mist);
+}
+.sg-range::-moz-range-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-sky);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   * { animation-duration: 0.001ms !important; }
