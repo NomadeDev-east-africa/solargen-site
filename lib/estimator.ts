@@ -88,9 +88,9 @@ export const DEFAULT_APPLIANCES: ApplianceMap = {
   autre: { qty: 0, hours: 4 },
 };
 
-// Dimensions d'un panneau Jinko Tiger Neo : 2,10 m × 1,10 m ≈ 2,31 m².
-export const PANEL_LENGTH_M = 2.1;
-export const PANEL_WIDTH_M = 1.1;
+// Dimensions d'un panneau Jinko Tiger Neo 78HL4 (fiche technique) : 2 465 × 1 134 mm ≈ 2,8 m².
+export const PANEL_LENGTH_M = 2.465;
+export const PANEL_WIDTH_M = 1.134;
 export const PANEL_AREA_M2 = Math.round(PANEL_LENGTH_M * PANEL_WIDTH_M * 100) / 100;
 
 export interface EstimatorInput {

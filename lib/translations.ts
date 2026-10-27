@@ -270,7 +270,7 @@ export const dict = {
         space: {
           title: "Espace disponible",
           subtitle:
-            "Quelle surface (toiture ou sol) pouvez-vous consacrer aux panneaux ? Un panneau mesure 2,10 × 1,10 m, soit environ 2,3 m².",
+            "Quelle surface (toiture ou sol) pouvez-vous consacrer aux panneaux ? Un panneau mesure 2,47 × 1,13 m, soit environ 2,8 m².",
           label: "Surface disponible",
           placeholder: "Ex. 40",
           unit: "m²",
@@ -618,7 +618,7 @@ export const dict = {
         space: {
           title: "Available space",
           subtitle:
-            "How much roof or ground space can you dedicate to the panels? One panel measures 2.10 × 1.10 m, about 2.3 m².",
+            "How much roof or ground space can you dedicate to the panels? One panel measures 2.47 × 1.13 m, about 2.8 m².",
           label: "Available area",
           placeholder: "E.g. 40",
           unit: "m²",
